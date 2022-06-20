@@ -22,6 +22,6 @@ public class SearchNewsOne extends SetUp{
         // search post
 
         methods.searchPostOne();
-        assertEquals(("cb95ef4bb5"), searchNewsPage.searchNews.getText());
+        assertEquals(("7c56c1d5cb"), searchNewsPage.searchNews.getText());
     }
 }

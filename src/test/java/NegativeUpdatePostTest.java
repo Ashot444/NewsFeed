@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -6,21 +5,20 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class SearchPostAll extends SetUp{
+public class NegativeUpdatePostTest extends SetUp{
     private final LoginPage loginPage = new LoginPage();
-    private final SearchNewsPage searchNewsPage = new SearchNewsPage();
     private final Methods methods = new Methods();
 
-    @Epic(value = "Search page.")
-    @Feature("Search.")
+    @Epic(value = "Update Post page.")
+    @Feature("Update Post.")
     @Story("Valid Post.")
     @Description(value = "Check sign in with email and password.")
     @Test
-    public void SearchPostAll() throws InterruptedException {
+    public void NegativeUpdatePostTest() throws InterruptedException {
         open(loginPage.homePageURL);
-
-        methods.searchPostAll();
+        // negative update post
+        methods.negativeUpdatePost();
     }
 }

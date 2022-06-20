@@ -7,23 +7,20 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-public class LoginTest extends SetUp {
-
+public class NegativeSearchNewsOne extends SetUp{
     private final LoginPage loginPage = new LoginPage();
-    private final HeaderElements headerElements = new HeaderElements();
+    private final SearchNewsPage searchNewsPage = new SearchNewsPage();
     private final Methods methods = new Methods();
 
-    @Epic(value = "Login page.")
-    @Feature("Login.")
-    @Story("Valid Login.")
+    @Epic(value = "Search page.")
+    @Feature("Search.")
+    @Story("Valid Post.")
     @Description(value = "Check sign in with email and password.")
     @Test
-    public void loginTest() throws InterruptedException {
+    public void NegativeSearchNewsOne() throws InterruptedException {
         open(loginPage.homePageURL);
+        //negative search post
 
-        // login
-        methods.login();
-        assertEquals(("Hello, " + methods.loginText + " "), headerElements.helloHeader.getText());
+        methods.negativeSearchPostOne();
     }
 }
