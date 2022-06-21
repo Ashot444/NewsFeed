@@ -12,10 +12,10 @@ public class NewPostTest extends SetUp{
     private final NewsPage newsPage = new NewsPage();
     private final Methods methods = new Methods();
 
-    @Epic(value = "Post page.")
+    @Epic(value = "New Post page.")
     @Feature("Post.")
     @Story("Valid Post.")
-    @Description(value = "Check sign in with email and password.")
+    @Description(value = "New post page.")
     @Test
     public void PostTest() throws InterruptedException {
         open(loginPage.homePageURL);

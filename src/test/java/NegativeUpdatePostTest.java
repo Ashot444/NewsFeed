@@ -14,7 +14,7 @@ public class NegativeUpdatePostTest extends SetUp{
     @Epic(value = "Update Post page.")
     @Feature("Update Post.")
     @Story("Valid Post.")
-    @Description(value = "Check sign in with email and password.")
+    @Description(value = "Update post.")
     @Test
     public void NegativeUpdatePostTest() throws InterruptedException {
         open(loginPage.homePageURL);

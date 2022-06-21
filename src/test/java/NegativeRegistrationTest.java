@@ -13,9 +13,9 @@ public class NegativeRegistrationTest extends SetUp{
     private final Methods methods = new Methods();
 
 
-    @Epic(value = "NegativeRegistration page.")
-    @Feature("NegativeRegistration.")
-    @Story("Valid NegativeRegistration.")
+    @Epic(value = "Negative Registration page.")
+    @Feature("Negative Registration.")
+    @Story("Valid Negative Registration.")
     @Description(value = "Check sign in with email and password.")
     @Test
     public void NegativeRegistrationTest() throws InterruptedException {

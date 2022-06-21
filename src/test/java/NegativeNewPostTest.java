@@ -12,10 +12,10 @@ public class NegativeNewPostTest extends SetUp {
     private final NewsPage newsPage = new NewsPage();
     private final Methods methods = new Methods();
 
-    @Epic(value = "Post page.")
-    @Feature("Post.")
+    @Epic(value = "Negative Post page.")
+    @Feature("Negative Post.")
     @Story("Valid Post.")
-    @Description(value = "Check sign in with email and password.")
+    @Description(value = "New Post.")
     @Test
     public void NegativeNewPostTest() throws InterruptedException {
         open(loginPage.homePageURL);

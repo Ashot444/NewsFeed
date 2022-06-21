@@ -50,7 +50,7 @@ public class Methods {
         loginPage.email.sendKeys(emailText);
         loginPage.password.sendKeys(passwordText);
         loginPage.submitButton.click();
-        Thread.sleep(1000);
+        Thread.sleep(5000);
     }
     public void negativeAllMethods() throws InterruptedException {
         headerElements.helloHeader.shouldBe(Condition.visible);
@@ -84,7 +84,7 @@ public class Methods {
 
         headerElements.helloHeader.shouldBe(Condition.visible);
 
-        Thread.sleep(1000);
+        Thread.sleep(3000);
     }
 
     public void negativeRegistration() throws InterruptedException {
@@ -139,7 +139,7 @@ public class Methods {
 
         updatePage.saveButton.click();
 
-        Thread.sleep(1000);
+        Thread.sleep(3000);
     }
 
     public void negativeUpdate() throws InterruptedException {

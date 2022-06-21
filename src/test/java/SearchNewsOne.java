@@ -15,7 +15,7 @@ public class SearchNewsOne extends SetUp{
     @Epic(value = "Search page.")
     @Feature("Search.")
     @Story("Valid Post.")
-    @Description(value = "Check sign in with email and password.")
+    @Description(value = "Search news one post.")
     @Test
     public void SearchNewsOne() throws InterruptedException {
         open(loginPage.homePageURL);

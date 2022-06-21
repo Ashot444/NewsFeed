@@ -18,7 +18,7 @@ public class DeletePostTest extends SetUp{
     @Epic(value = "Delete post.")
     @Feature("Delete.")
     @Story("Valid Delete.")
-    @Description(value = "Check sign in with email and password.")
+    @Description(value = "Delete.")
     @Test
     public void DeletePostTest() throws InterruptedException {
         open(loginPage.homePageURL);

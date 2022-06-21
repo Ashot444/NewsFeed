@@ -13,10 +13,10 @@ public class NegativeUpdateTest extends SetUp{
     private final HeaderElements headerElements = new HeaderElements();
     private final Methods methods = new Methods();
 
-    @Epic(value = "NegativeUpdate page.")
-    @Feature("NegativeUpdate.")
-    @Story("Valid NegativeUpdate.")
-    @Description(value = "Check sign in with email and password.")
+    @Epic(value = "Negative Update page.")
+    @Feature("Negative Update.")
+    @Story("Valid Negative Update.")
+    @Description(value = "Negative Update post.")
     @Test
     public void NegativeUpdateTest() throws InterruptedException {
         open(loginPage.homePageURL);

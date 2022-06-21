@@ -15,7 +15,7 @@ public class NegativeSearchNewsOne extends SetUp{
     @Epic(value = "Search page.")
     @Feature("Search.")
     @Story("Valid Post.")
-    @Description(value = "Check sign in with email and password.")
+    @Description(value = "Search post.")
     @Test
     public void NegativeSearchNewsOne() throws InterruptedException {
         open(loginPage.homePageURL);

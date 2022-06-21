@@ -10,7 +10,8 @@ public class SetUp {
 
     @BeforeAll
     public static void setUpAllure() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
+       // SelenideLogger.addListener("allure", new AllureSelenide());
+        SelenideLogger.addListener("allure", new AllureSelenide().screenshots(true).savePageSource(false));
     }
 
     @BeforeEach

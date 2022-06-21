@@ -16,7 +16,7 @@ public class SearchPostAll extends SetUp{
     @Epic(value = "Search page.")
     @Feature("Search.")
     @Story("Valid Post.")
-    @Description(value = "Check sign in with email and password.")
+    @Description(value = "Search post all")
     @Test
     public void SearchPostAll() throws InterruptedException {
         open(loginPage.homePageURL);

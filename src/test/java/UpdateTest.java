@@ -16,7 +16,7 @@ public class UpdateTest extends SetUp{
         @Epic(value = "Update page.")
         @Feature("Update.")
         @Story("Valid Update.")
-        @Description(value = "Check sign in with email and password.")
+        @Description(value = "Update user")
         @Test
         public void UpdateTest() throws InterruptedException {
                 open(loginPage.homePageURL);

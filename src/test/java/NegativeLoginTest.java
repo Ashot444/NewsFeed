@@ -13,8 +13,8 @@ public class NegativeLoginTest extends SetUp {
     private final Methods methods = new Methods();
 
     @Epic(value = "negative Login page.")
-    @Feature("negativeLogin.")
-    @Story("Valid negativeLogin.")
+    @Feature("negative Login.")
+    @Story("Valid negative Login.")
     @Description(value = "Check sign in with email and password.")
     @Test
     public void NegativeLoginTest() throws InterruptedException {

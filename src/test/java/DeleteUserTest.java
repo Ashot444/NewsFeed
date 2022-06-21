@@ -12,10 +12,10 @@ public class DeleteUserTest extends SetUp{
     private final HeaderElements headerElements = new HeaderElements();
     private final Methods methods = new Methods();
 
-    @Epic(value = "Delete page.")
+    @Epic(value = "Delete user.")
     @Feature("Delete.")
     @Story("Valid Delete.")
-    @Description(value = "Check sign in with email and password.")
+    @Description(value = "Delete.")
     @Test
     public void DeleteUserTest() throws InterruptedException {
         open(loginPage.homePageURL);
