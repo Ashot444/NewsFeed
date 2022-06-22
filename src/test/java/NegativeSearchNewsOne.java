@@ -12,10 +12,10 @@ public class NegativeSearchNewsOne extends SetUp{
     private final SearchNewsPage searchNewsPage = new SearchNewsPage();
     private final Methods methods = new Methods();
 
-    @Epic(value = "Search page.")
-    @Feature("Search.")
+    @Epic(value = "Negative Search page.")
+    @Feature("Negative Search.")
     @Story("Valid Post.")
-    @Description(value = "Search post.")
+    @Description(value = "Negative Search post.")
     @Test
     public void NegativeSearchNewsOne() throws InterruptedException {
         open(loginPage.homePageURL);

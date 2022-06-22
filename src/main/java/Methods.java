@@ -138,12 +138,12 @@ public class Methods {
         File file = new File(new File(avatarPath).getAbsolutePath());
         registrationPage.avatarReg.sendKeys(file.getAbsolutePath());
 
-        updatePage.saveButton.click();
+        updatePage.saveButton.shouldBe(Condition.visible).click();
 
         Thread.sleep(3000);
     }
 
-    public void negativeUpdate() throws InterruptedException {
+    public void negativeUpdate(){
         allmethods();
         headerElements.accountMyProfile.shouldBe(Condition.visible).click();
         accountPage.updateUser.shouldBe(Condition.visible).click();
@@ -161,12 +161,10 @@ public class Methods {
 
         updatePage.saveButton.click();
 
-        Thread.sleep(1000);
-
         loginPage.alertError.shouldBe(Condition.visible);
     }
 
-    public void updatedefault() throws InterruptedException {
+    public void updatedefault(){
         accountPage.updateUser.shouldBe(Condition.visible).click();
         updatePage.upTitle.shouldBe(Condition.visible);
 
@@ -176,7 +174,7 @@ public class Methods {
         updatePage.newUserName.sendKeys("defaultName");
         loginText = updatePage.newUserName.getAttribute("value");
 
-        updatePage.saveButton.click();
+        updatePage.saveButton.shouldBe(Condition.visible).click();
     }
 
     public void deleteUser() throws InterruptedException {
@@ -240,7 +238,7 @@ public class Methods {
 
     public void deletePost() throws InterruptedException {
         newPost();
-        accountPage.deletePostButton.click();
+        accountPage.deletePostButton.shouldBe(Condition.visible).click();
     }
 
     public void updatePost() throws InterruptedException {

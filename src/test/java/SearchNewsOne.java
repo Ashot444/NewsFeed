@@ -17,11 +17,10 @@ public class SearchNewsOne extends SetUp{
     @Story("Valid Post.")
     @Description(value = "Search news one post.")
     @Test
-    public void SearchNewsOne() throws InterruptedException {
+    public void SearchNewsOne() {
         open(loginPage.homePageURL);
         // search post
 
         methods.searchPostOne();
-      //  assertEquals((), searchNewsPage.searchNews.getText());
     }
 }
