@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class DeleteUserTest extends SetUp{
     private final LoginPage loginPage = new LoginPage();
@@ -23,5 +24,18 @@ public class DeleteUserTest extends SetUp{
         methods.deleteUser();
 
         assertEquals(("Hello,  "), headerElements.helloHeader.getText());
+    }
+
+    @Epic(value = "Negative Delete user.")
+    @Feature("Negative Delete.")
+    @Story("Valid Negative Delete.")
+    @Description(value = "Negative Delete.")
+    @Test
+    public void NegativeDeleteUserTest() throws InterruptedException {
+        open(loginPage.homePageURL);
+        // delete user
+        methods.negativeDeleteUser();
+
+        assertNotEquals(("Hello,  "), headerElements.helloHeader.getText());
     }
 }

@@ -187,6 +187,17 @@ public class Methods {
         Thread.sleep(1000);
     }
 
+    public void negativeDeleteUser() throws InterruptedException {
+        registration();
+        headerElements.quitButton.click();
+        allmethods();
+        headerElements.accountMyProfile.shouldBe(Condition.visible).click();
+        accountPage.deleteUser.shouldBe(Condition.visible).click();
+        Selenide.switchTo().alert().dismiss();
+        Thread.sleep(1000);
+    }
+
+
     public void newPost() throws InterruptedException {
         registration();
         headerElements.quitButton.click();
