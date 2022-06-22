@@ -7,10 +7,24 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class NegativeRegistrationTest extends SetUp{
+public class RegistrationTest extends SetUp{
     private final LoginPage loginPage = new LoginPage();
     private final HeaderElements headerElements = new HeaderElements();
     private final Methods methods = new Methods();
+
+
+    @Epic(value = "Registration page.")
+    @Feature("Registration.")
+    @Story("Valid Registration.")
+    @Description(value = "Check sign in with email and password.")
+    @Test
+    public void RegistrationTest() throws InterruptedException {
+        open(loginPage.homePageURL);
+
+        // Registration
+
+        methods.registration();
+    }
 
 
     @Epic(value = "Negative Registration page.")
@@ -26,4 +40,5 @@ public class NegativeRegistrationTest extends SetUp{
         methods.negativeRegistration();
         assertEquals(("Hello,  "), headerElements.helloHeader.getText());
     }
+
 }

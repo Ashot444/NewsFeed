@@ -24,4 +24,17 @@ public class NewPostTest extends SetUp{
 
         assertEquals((methods.titleText), newsPage.getTitle.getText());
     }
+
+    @Epic(value = "Negative Post page.")
+    @Feature("Negative Post.")
+    @Story("Valid Post.")
+    @Description(value = "New Post.")
+    @Test
+    public void NegativeNewPostTest() throws InterruptedException {
+        open(loginPage.homePageURL);
+        // negative new post
+        methods.negativeNewPost();
+    }
+
+
 }

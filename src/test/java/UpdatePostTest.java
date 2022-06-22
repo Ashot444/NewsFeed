@@ -28,4 +28,15 @@ public class UpdatePostTest extends SetUp{
 
             assertNotEquals((methods.titleText), methods.upTitleText);
         }
+
+    @Epic(value = "Negative Update Post.")
+    @Feature("Negative Update Post.")
+    @Story("Valid Post.")
+    @Description(value = "Negative Update post.")
+    @Test
+    public void NegativeUpdatePostTest() throws InterruptedException {
+        open(loginPage.homePageURL);
+        // negative update post
+        methods.negativeUpdatePost();
+    }
 }

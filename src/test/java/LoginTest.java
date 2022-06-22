@@ -26,4 +26,17 @@ public class LoginTest extends SetUp {
         methods.login();
         //assertEquals(("Hello, " + methods.loginText + " "), headerElements.helloHeader.getText());
     }
+
+    @Epic(value = "negative Login page.")
+    @Feature("negative Login.")
+    @Story("Valid negative Login.")
+    @Description(value = "Check sign in with email and password.")
+    @Test
+    public void NegativeLoginTest() throws InterruptedException {
+        open(loginPage.homePageURL);
+        // negativeLogin
+        methods.negativeLoginText();
+        assertEquals(("Hello,  "), headerElements.helloHeader.getText());
+    }
+
 }

@@ -28,4 +28,15 @@ public class UpdateTest extends SetUp{
 
                 methods.updatedefault();
         }
+
+        @Epic(value = "Negative Update page.")
+        @Feature("Negative Update.")
+        @Story("Valid Negative Update.")
+        @Description(value = "Negative Update post.")
+        @Test
+        public void NegativeUpdateTest() throws InterruptedException {
+                open(loginPage.homePageURL);
+                //update
+                methods.negativeUpdate();
+        }
 }
