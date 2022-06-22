@@ -10,7 +10,4 @@ public class LoginPage {
     SelenideElement email = $(By.xpath("//input[contains(@name, 'email')]"));
     SelenideElement password = $(By.xpath("//input[contains(@name, 'password')]"));
     SelenideElement submitButton = $(By.xpath("//button[contains(@class, 'Authorization_button')]"));
-
-
-
 }

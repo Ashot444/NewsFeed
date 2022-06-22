@@ -1,8 +1,9 @@
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -45,12 +46,12 @@ public class Methods {
         return sb.toString().substring(0, length);
     }
 
-    public void allmethods() throws InterruptedException {
+    public void allmethods(){
         headerElements.helloHeader.shouldBe(Condition.visible);
         loginPage.email.sendKeys(emailText);
         loginPage.password.sendKeys(passwordText);
         loginPage.submitButton.click();
-        Thread.sleep(5000);
+        headerElements.helloHeader.shouldBe(Condition.exactText(headerElements.helloHeader.getText()));
     }
     public void negativeAllMethods() throws InterruptedException {
         headerElements.helloHeader.shouldBe(Condition.visible);
@@ -290,25 +291,50 @@ public class Methods {
         loginPage.alertError.shouldBe(Condition.visible);
     }
 
-    public void searchPostOne() throws InterruptedException {
+
+    public void searchPostOne(){
+        List<String> titleNewsTwo = new ArrayList<>();
+
+        titleNewsTwo.add((searchNewsPage.arrNews.get(4).scrollIntoView(true).getText()));
+
         searchNewsPage.inputSearch.shouldBe(Condition.visible);
-        searchNewsPage.inputSearch.setValue("7c56c1d5cb");
+        searchNewsPage.inputSearch.setValue(titleNewsTwo.get(0));
+
         searchNewsPage.searchButton.shouldBe(Condition.visible).click();
-        Thread.sleep(3000);
+        searchNewsPage.searchNews.shouldBe(Condition.visible);
     }
 
-    public void negativeSearchPostOne() throws InterruptedException {
+    public void negativeSearchPostOne(){
         searchNewsPage.inputSearch.shouldBe(Condition.visible);
         searchNewsPage.inputSearch.setValue(generateRandomHexString(5));
         searchNewsPage.searchButton.shouldBe(Condition.visible).click();
-        Thread.sleep(3000);
         searchNewsPage.news.shouldNot(Condition.visible);
     }
 
-    public void searchPostAll() {
-        for (int i = 0; i < 100; i++) {
-            Selenide.$$x("//*[@class ='MuiPaper-root MuiPaper-elevation MuiPaper-rounded" +
-                    " MuiPaper-elevation1 MuiCard-root Post_posts__1Y3K- css-w88nxk']").get(i).scrollIntoView(true);
+    public void poginaciaPostAll() {
+        List<String> titleNews = new ArrayList<>();
+        List<String> textNews = new ArrayList<>();
+        List<String> tagsNews = new ArrayList<>();
+
+
+        for(int i = 0; i < 100; i = i + 2){
+            titleNews.add((searchNewsPage.arrNews.get(i).scrollIntoView(true).getText()));
+        }
+
+        for(int i = 1; i < 100; i = i + 2){
+            textNews.add((searchNewsPage.arrAreaNews.get(i).scrollIntoView(true).getText()));
+        }
+
+        for(int i = 1; i < 100; i = i + 2){
+            tagsNews.add((searchNewsPage.arrNews.get(i).scrollIntoView(true).getText()));
+        }
+
+        int j = 0;
+        for (int i = 0; i < 50; i++){
+            System.out.println(titleNews.get(j));
+            System.out.println(textNews.get(j));
+            System.out.println(tagsNews.get(j) + "\n");
+            j++;
         }
     }
 
