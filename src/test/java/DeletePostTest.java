@@ -28,4 +28,15 @@ public class DeletePostTest extends SetUp{
         newsPage.getTitle.shouldNot(Condition.visible);
     }
 
+    @Epic(value = "Negative Delete post.")
+    @Feature("Negative Delete.")
+    @Story("Valid Negative Delete.")
+    @Description(value = "Negative Delete.")
+    @Test
+    public void NegativeDeletePostTest() throws InterruptedException {
+        open(loginPage.homePageURL);
+        // negative delete user
+        methods.negativeDeletePost();
+    }
+
 }

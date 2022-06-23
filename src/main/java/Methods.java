@@ -88,15 +88,18 @@ public class Methods {
         Thread.sleep(3000);
     }
 
-    public void negativeRegistration() throws InterruptedException {
+    public void negativeEmailRegistration() throws InterruptedException {
         headerElements.enterButton.shouldBe(Condition.visible).click();
         registrationPage.regTitle.shouldBe(Condition.visible);
 
+        registrationPage.emailReg.sendKeys(generateRandomHexString(5));
+        //emailText = registrationPage.emailReg.getAttribute("value");
+
         registrationPage.loginReg.sendKeys(generateRandomHexString(5));
-        loginText = registrationPage.loginReg.getAttribute("value");
+        //loginText = registrationPage.loginReg.getAttribute("value");
 
         registrationPage.passwordReg.sendKeys(generateRandomHexString(6));
-        passwordText = registrationPage.passwordReg.getAttribute("value");
+       // passwordText = registrationPage.passwordReg.getAttribute("value");
 
         String avatarPath = "src/main/resources/avatar.jpeg";
         File file = new File(new File(avatarPath).getAbsolutePath());
@@ -109,6 +112,62 @@ public class Methods {
         Thread.sleep(1000);
 
         loginPage.alertError.shouldBe(Condition.visible);
+    }
+
+    public void negativePasswordRegistration() throws InterruptedException {
+        headerElements.enterButton.shouldBe(Condition.visible).click();
+        registrationPage.regTitle.shouldBe(Condition.visible);
+
+        registrationPage.emailReg.sendKeys(generateRandomHexString(5) + "@gmail.com");
+        //emailText = registrationPage.loginReg.getAttribute("value");
+
+
+        registrationPage.loginReg.sendKeys(generateRandomHexString(5));
+       // loginText = registrationPage.loginReg.getAttribute("value");
+
+
+        registrationPage.passwordReg.sendKeys(generateRandomHexString(0));
+        //passwordText = registrationPage.passwordReg.getAttribute("value");
+
+        String avatarPath = "src/main/resources/avatar.jpeg";
+        File file = new File(new File(avatarPath).getAbsolutePath());
+        registrationPage.avatarReg.sendKeys(file.getAbsolutePath());
+
+        registrationPage.submitRegButton.shouldBe(Condition.visible).click();
+
+        loginPage.alertError.shouldBe(Condition.visible);
+
+        headerElements.helloHeader.shouldBe(Condition.visible);
+
+        Thread.sleep(1000);
+    }
+
+    public void negativeLoginRegistration() throws InterruptedException {
+        headerElements.enterButton.shouldBe(Condition.visible).click();
+        registrationPage.regTitle.shouldBe(Condition.visible);
+
+        registrationPage.emailReg.sendKeys(generateRandomHexString(5) + "@gmail.com");
+       // emailText = registrationPage.loginReg.getAttribute("value");
+
+
+        registrationPage.loginReg.sendKeys(generateRandomHexString(2));
+       // loginText = registrationPage.loginReg.getAttribute("value");
+
+
+        registrationPage.passwordReg.sendKeys(generateRandomHexString(6));
+       // passwordText = registrationPage.passwordReg.getAttribute("value");
+
+        String avatarPath = "src/main/resources/avatar.jpeg";
+        File file = new File(new File(avatarPath).getAbsolutePath());
+        registrationPage.avatarReg.sendKeys(file.getAbsolutePath());
+
+        registrationPage.submitRegButton.shouldBe(Condition.visible).click();
+
+        loginPage.alertError.shouldBe(Condition.visible);
+
+        headerElements.helloHeader.shouldBe(Condition.visible);
+
+        Thread.sleep(1000);
     }
 
 
@@ -124,7 +183,7 @@ public class Methods {
 
     public void update() throws InterruptedException {
         allmethods();
-        headerElements.accountMyProfile.shouldBe(Condition.visible).click();
+        headerElements.accountMyProfile.click();
         accountPage.updateUser.shouldBe(Condition.visible).click();
         updatePage.upTitle.shouldBe(Condition.visible);
 
@@ -139,8 +198,6 @@ public class Methods {
         registrationPage.avatarReg.sendKeys(file.getAbsolutePath());
 
         updatePage.saveButton.shouldBe(Condition.visible).click();
-
-        Thread.sleep(3000);
     }
 
     public void negativeUpdate(){
@@ -150,10 +207,8 @@ public class Methods {
         updatePage.upTitle.shouldBe(Condition.visible);
 
         loginPage.email.sendKeys(generateRandomHexString(5) + "@gmail.com");
-        emailText = updatePage.emailUp.getAttribute("value");
 
         updatePage.newUserName.sendKeys(generateRandomHexString(2));
-        loginText = updatePage.newUserName.getAttribute("value");
 
         String avatarPath = "src/main/resources/avatar.jpeg";
         File file = new File(new File(avatarPath).getAbsolutePath());
@@ -184,7 +239,8 @@ public class Methods {
         headerElements.accountMyProfile.shouldBe(Condition.visible).click();
         accountPage.deleteUser.shouldBe(Condition.visible).click();
         Selenide.switchTo().alert().accept();
-        Thread.sleep(1000);
+        headerElements.helloHeader.shouldNot(Condition.exactText(headerElements.helloHeader.getText()));
+        registration();
     }
 
     public void negativeDeleteUser() throws InterruptedException {
@@ -194,7 +250,7 @@ public class Methods {
         headerElements.accountMyProfile.shouldBe(Condition.visible).click();
         accountPage.deleteUser.shouldBe(Condition.visible).click();
         Selenide.switchTo().alert().dismiss();
-        Thread.sleep(1000);
+        headerElements.helloHeader.shouldBe(Condition.exactText(headerElements.helloHeader.getText()));
     }
 
 
@@ -252,6 +308,13 @@ public class Methods {
         accountPage.deletePostButton.shouldBe(Condition.visible).click();
     }
 
+    public void negativeDeletePost() throws InterruptedException{
+
+        allmethods();
+        headerElements.accountMyProfile.shouldBe(Condition.visible).click();
+        accountPage.deletePostButton.shouldNot(Condition.visible);
+    }
+
     public void updatePost() throws InterruptedException {
         newPost();
         accountPage.updatePostButton.click();
@@ -271,7 +334,7 @@ public class Methods {
 
         updatePostPage.saveButton.click();
 
-        Thread.sleep(5000);
+       // Thread.sleep(5000);
     }
 
     public void negativeUpdatePost() throws InterruptedException{
@@ -295,7 +358,7 @@ public class Methods {
 
         updatePostPage.saveButton.click();
 
-        Thread.sleep(5000);
+       // Thread.sleep(5000);
 
         loginPage.alertError.shouldBe(Condition.visible);
     }
