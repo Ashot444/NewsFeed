@@ -1,6 +1,7 @@
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -93,13 +94,10 @@ public class Methods {
         registrationPage.regTitle.shouldBe(Condition.visible);
 
         registrationPage.emailReg.sendKeys(generateRandomHexString(5));
-        //emailText = registrationPage.emailReg.getAttribute("value");
 
         registrationPage.loginReg.sendKeys(generateRandomHexString(5));
-        //loginText = registrationPage.loginReg.getAttribute("value");
 
         registrationPage.passwordReg.sendKeys(generateRandomHexString(6));
-       // passwordText = registrationPage.passwordReg.getAttribute("value");
 
         String avatarPath = "src/main/resources/avatar.jpeg";
         File file = new File(new File(avatarPath).getAbsolutePath());
@@ -119,15 +117,12 @@ public class Methods {
         registrationPage.regTitle.shouldBe(Condition.visible);
 
         registrationPage.emailReg.sendKeys(generateRandomHexString(5) + "@gmail.com");
-        //emailText = registrationPage.loginReg.getAttribute("value");
 
 
         registrationPage.loginReg.sendKeys(generateRandomHexString(5));
-       // loginText = registrationPage.loginReg.getAttribute("value");
 
 
         registrationPage.passwordReg.sendKeys(generateRandomHexString(0));
-        //passwordText = registrationPage.passwordReg.getAttribute("value");
 
         String avatarPath = "src/main/resources/avatar.jpeg";
         File file = new File(new File(avatarPath).getAbsolutePath());
@@ -147,15 +142,10 @@ public class Methods {
         registrationPage.regTitle.shouldBe(Condition.visible);
 
         registrationPage.emailReg.sendKeys(generateRandomHexString(5) + "@gmail.com");
-       // emailText = registrationPage.loginReg.getAttribute("value");
-
 
         registrationPage.loginReg.sendKeys(generateRandomHexString(2));
-       // loginText = registrationPage.loginReg.getAttribute("value");
-
 
         registrationPage.passwordReg.sendKeys(generateRandomHexString(6));
-       // passwordText = registrationPage.passwordReg.getAttribute("value");
 
         String avatarPath = "src/main/resources/avatar.jpeg";
         File file = new File(new File(avatarPath).getAbsolutePath());
@@ -347,24 +337,22 @@ public class Methods {
 
         updatePostPage.upPost.clear();
         updatePostPage.upPost.sendKeys(generateRandomHexString(1));
-        upPostText = updatePostPage.upPost.getAttribute("value");
 
         String avatarPath = "src/main/resources/newNov.jpeg";
         File file = new File(new File(avatarPath).getAbsolutePath());
         updatePostPage.upPicture.sendKeys(file.getAbsolutePath());
 
         updatePostPage.upTags.sendKeys(generateRandomHexString(5));
-        upTagsText = updatePostPage.upTags.getAttribute("value");
 
         updatePostPage.saveButton.click();
 
-       // Thread.sleep(5000);
+
 
         loginPage.alertError.shouldBe(Condition.visible);
     }
 
 
-    public void searchPostOne(){
+    public String searchPostOne(){
         List<String> titleNewsTwo = new ArrayList<>();
 
         titleNewsTwo.add((searchNewsPage.arrNews.get(4).scrollIntoView(true).getText()));
@@ -373,7 +361,11 @@ public class Methods {
         searchNewsPage.inputSearch.setValue(titleNewsTwo.get(0));
 
         searchNewsPage.searchButton.shouldBe(Condition.visible).click();
-        searchNewsPage.searchNews.shouldBe(Condition.visible);
+
+        String title = titleNewsTwo.get(0);
+        System.out.println(titleNewsTwo.get(0).equals((searchNewsPage.arrNews.get(1).getText())));
+
+        return title;
     }
 
     public void negativeSearchPostOne(){

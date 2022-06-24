@@ -5,6 +5,7 @@ import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SearchNewsOneTest extends SetUp{
     private final LoginPage loginPage = new LoginPage();
@@ -16,11 +17,13 @@ public class SearchNewsOneTest extends SetUp{
     @Story("Valid Post.")
     @Description(value = "Search news one post.")
     @Test
-    public void SearchNewsOne() {
+    public void SearchNewsOne() throws InterruptedException {
         open(loginPage.homePageURL);
         // search post
 
-        methods.searchPostOne();
+        String title = methods.searchPostOne();
+
+       assertEquals((title), searchNewsPage.arrNews.get(0).getText());
     }
 
     @Epic(value = "Negative Search page.")

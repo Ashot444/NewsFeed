@@ -17,9 +17,9 @@ public class SetUp {
     @BeforeEach
     public void setUp() {
         Configuration.startMaximized = true;
-        Configuration.timeout = 10000;
+        Configuration.timeout = 1000;
         Configuration.browser = "safari";
-//        Configuration.headless = true;
+        Configuration.headless = false;
     }
 
     @AfterEach
